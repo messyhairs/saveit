@@ -14,6 +14,7 @@ mongoose.connect(config.DB, { useNewUrlParser: true }).then(
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/dist/meandemo'));
 app.use(cors());
 app.use('/business', businessRoute);
 const port = process.env.PORT || 4000;
