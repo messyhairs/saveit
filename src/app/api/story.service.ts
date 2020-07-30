@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StoryService {
 
-  uri = 'http://localhost:4000/business';
+  uri = '/business';
 
   constructor(private http: HttpClient) { }
 
