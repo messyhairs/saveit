@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StoryService {
 
-  uri = '/business';
+  uri = 'http://localhost:4000/business';
 
   constructor(private http: HttpClient) { }
 
@@ -19,5 +19,10 @@ export class StoryService {
     console.log(obj);
     this.http.post(`${this.uri}/add`, obj)
       .subscribe(res => console.log('Done'));
+  }
+  getBusinesses() {
+    return this
+      .http
+      .get(`${this.uri}`);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StoryService } from '../../api/story.service';
+import Business from '../../api/business';
 
 @Component({
   selector: 'app-getstory',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetstoryComponent implements OnInit {
 
-  constructor() { }
+  businesses: Business[];
 
-  ngOnInit(): void {
+  constructor(private bs: StoryService) { }
+
+  ngOnInit() {
+    this.bs
+      .getBusinesses()
+      .subscribe((data: Business[]) => {
+        this.businesses = data;
+      });
   }
 
 }
