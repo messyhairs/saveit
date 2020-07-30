@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StoryService {
 
-  uri = 'http://localhost:4000/business';
+  // uri = 'http://localhost:4000/business';
+  uri = 'https://meanapplauncher.herokuapp.com/business';
 
   constructor(private http: HttpClient) { }
 
