@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoryService } from '../../api/story.service';
 import Business from '../../api/business';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-getstory',
@@ -12,13 +13,15 @@ export class GetstoryComponent implements OnInit {
 
   businesses: Business[];
 
-  constructor(private bs: StoryService, private router: Router) { }
+  constructor(private bs: StoryService, private SpinnerService: NgxSpinnerService, private router: Router) { }
 
   ngOnInit() {
+    this.SpinnerService.show();
     this.bs
       .getBusinesses()
       .subscribe((data: Business[]) => {
         this.businesses = data;
+        this.SpinnerService.hide();
       });
   }
   deleteBusiness(id): void {

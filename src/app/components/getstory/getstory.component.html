@@ -19,7 +19,7 @@
     </tbody>
 </table> -->
 <div *ngFor="let business of businesses">
-    <div class="cardlayout" id="cardlayout">
+    <div class="cardlayout animate__animated animate__fadeIn" id="cardlayout">
         <div class="wrapper" id="wrapper">
             <img src="{{ business.avatarurl }}" class="image--cover">
         </div>
@@ -30,9 +30,12 @@
             <div class="more">
                 <a [routerLink]="['/edit', business._id]" class="text-primary">Edit</a>
                 <a [routerLink]="['/fullstory', business._id]" class="text-success px-3">Read full story</a>
-                <a (click)="deleteBusiness(business._id)" class="text-danger px-3">Delete</a>
+                <a (click)="deleteBusiness(business._id)" class="text-danger">Delete</a>
             </div>
             <hr class="w-60">
         </div>
     </div>
 </div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>
