@@ -11,11 +11,11 @@ export class StoryService {
 
   constructor(private http: HttpClient) { }
 
-  addBusiness(person_name, business_name, business_gst_number) {
+  addBusiness(storytitle, avatarurl, explainstory) {
     const obj = {
-      person_name: person_name,
-      business_name: business_name,
-      business_gst_number: business_gst_number
+      storytitle: storytitle,
+      avatarurl: avatarurl,
+      explainstory: explainstory
     };
     console.log(obj);
     this.http.post(`${this.uri}/add`, obj)
@@ -25,5 +25,28 @@ export class StoryService {
     return this
       .http
       .get(`${this.uri}`);
+  }
+
+  editBusiness(id) {
+    return this
+      .http
+      .get(`${this.uri}/edit/${id}`);
+  }
+  updateBusiness(storytitle, avatarurl, explainstory, id) {
+
+    const obj = {
+      storytitle: storytitle,
+      avatarurl: avatarurl,
+      explainstory: explainstory
+    };
+    this
+      .http
+      .post(`${this.uri}/update/${id}`, obj)
+      .subscribe(res => console.log('updted sucessfully'));
+  }
+  deleteBusiness(id) {
+    return this
+      .http
+      .get(`${this.uri}/delete/${id}`);
   }
 }

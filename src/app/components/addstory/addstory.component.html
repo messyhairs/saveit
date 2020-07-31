@@ -2,37 +2,37 @@
     <!-- <div class="card-body w-50"> -->
     <form [formGroup]="angForm" novalidate class="w-50">
         <div class="form-group">
-            <label class="col-md-4">Person Name</label>
-            <input type="text" class="form-control w-50" formControlName="person_name" #person_name />
+            <label class="col-md-4">story title</label>
+            <input type="text" class="form-control w-50" formControlName="storytitle" #storytitle />
         </div>
-        <div *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)"
+        <div *ngIf="angForm.controls['storytitle'].invalid && (angForm.controls['storytitle'].dirty || angForm.controls['storytitle'].touched)"
             class="alert alert-danger w-50">
-            <div *ngIf="angForm.controls['person_name'].errors.required">
-                Person Name is required.
+            <div *ngIf="angForm.controls['storytitle'].errors.required">
+                Title is required.
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4">Business Name </label>
-            <input type="text" class="form-control w-50" formControlName="business_name" #business_name />
+            <label class="col-md-4">Avatar Url </label>
+            <input type="text" class="form-control w-50" formControlName="avatarurl" #avatarurl />
         </div>
-        <div *ngIf="angForm.controls['business_name'].invalid && (angForm.controls['business_name'].dirty || angForm.controls['business_name'].touched)"
+        <div *ngIf="angForm.controls['avatarurl'].invalid && (angForm.controls['avatarurl'].dirty || angForm.controls['avatarurl'].touched)"
             class="alert alert-danger w-50">
-            <div *ngIf="angForm.controls['business_name'].errors.required">
-                Person Business is required.
+            <div *ngIf="angForm.controls['avatarurl'].errors.required">
+                URL is required.
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4">Business GST Number </label>
-            <input type="text" class="form-control w-50" formControlName="business_gst_number" #business_gst_number />
+            <label class="col-md-4">Explain story </label>
+            <textarea class="form-control w-50" formControlName="explainstory" #explainstory></textarea>
         </div>
-        <div *ngIf="angForm.controls['business_gst_number'].invalid && (angForm.controls['business_gst_number'].dirty || angForm.controls['business_gst_number'].touched)"
+        <div *ngIf="angForm.controls['explainstory'].invalid && (angForm.controls['explainstory'].dirty || angForm.controls['explainstory'].touched)"
             class="alert alert-danger w-50">
-            <div *ngIf="angForm.controls['business_gst_number'].errors.required">
+            <div *ngIf="angForm.controls['explainstory'].errors.required">
                 Business GST Number is required.
             </div>
         </div>
         <div class="form-group">
-            <button (click)="addBusiness(person_name.value, business_name.value, business_gst_number.value)"
+            <button (click)="addBusiness(storytitle.value, avatarurl.value, explainstory.value)"
                 [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">
                 Add story
             </button>

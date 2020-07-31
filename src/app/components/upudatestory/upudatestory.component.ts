@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { StoryService } from '../../api/story.service';
+import Business from '../../api/business';
 @Component({
   selector: 'app-upudatestory',
   templateUrl: './upudatestory.component.html',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpudatestoryComponent implements OnInit {
 
-  constructor() { }
+  business: any = {};
+  angForm: FormGroup;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private router: Router, private bs: StoryService, private fb: FormBuilder) {
+    this.createForm();
   }
 
+  createForm(): void {
+    this.angForm = this.fb.group({
+      storytitle: ['', Validators.required],
+      avatarurl: ['', Validators.required],
+      explainstory: ['', Validators.required]
+    });
+  }
+
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.bs.editBusiness(params['id']).subscribe(res => {
+        this.business = res;
+      });
+    });
+  }
+  updateBusiness(storytitle, avatarurl, explainstory) {
+    this.route.params.subscribe(params => {
+      this.bs.updateBusiness(storytitle, avatarurl, explainstory, params['id']);
+      this.router.navigate(['addstory']);
+    });
+  }
 }

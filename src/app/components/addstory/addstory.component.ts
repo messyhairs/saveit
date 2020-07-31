@@ -15,13 +15,13 @@ export class AddstoryComponent implements OnInit {
 
   createForm(): void {
     this.angForm = this.fb.group({
-      person_name: ['', Validators.required],
-      business_name: ['', Validators.required],
-      business_gst_number: ['', Validators.required]
+      storytitle: ['', Validators.required],
+      avatarurl: ['', Validators.required],
+      explainstory: ['', Validators.required]
     });
   }
-  addBusiness(person_name, busines_name, business_gst_number) {
-    this.storyser.addBusiness(person_name, busines_name, business_gst_number);
+  addBusiness(storytitle, avatarurl, explainstory) {
+    this.storyser.addBusiness(storytitle, avatarurl, explainstory);
   }
 
   ngOnInit(): void {

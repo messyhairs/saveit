@@ -1,20 +1,38 @@
-<table class="table table-hover">
+<!-- <table class="table table-hover">
     <thead>
         <tr>
             <td>Person Name</td>
             <td>story Name</td>
-            <td>Book Number</td>
-            <!-- <td colspan="2">Actions</td> -->
-        </tr>
+            <td>Book Number</td> -->
+<!-- <td colspan="2">Actions</td> -->
+<!-- </tr>
     </thead>
 
     <tbody>
         <tr *ngFor="let business of businesses">
             <td>{{ business.person_name }}</td>
-            <td>{{ business.business_name }}</td>
+            <td><img src="{{ business.business_name }}" width="200px"></td>
             <td>{{ business.business_gst_number }}</td>
-            <!-- <td><a [routerLink]="['/edit', business._id]" class="btn btn-primary">Edit</a></td>
-            <td><a [routerLink]="" class="btn btn-danger">Delete</a></td> -->
+            <td><a [routerLink]="['/edit', business._id]" class="btn btn-primary">Edit</a></td>
+            <td><a (click)="deleteBusiness(business._id)" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
-</table>
+</table> -->
+<div *ngFor="let business of businesses">
+    <div class="cardlayout" id="cardlayout">
+        <div class="wrapper" id="wrapper">
+            <img src="{{ business.avatarurl }}" class="image--cover">
+        </div>
+        <div class="cardname">
+            {{ business.storytitle }}
+        </div>
+        <div class="carddetails">
+            <div class="more">
+                <a [routerLink]="['/edit', business._id]" class="text-primary">Edit</a>
+                <a [routerLink]="['/fullstory', business._id]" class="text-success px-3">Read full story</a>
+                <a (click)="deleteBusiness(business._id)" class="text-danger px-3">Delete</a>
+            </div>
+            <hr class="w-60">
+        </div>
+    </div>
+</div>

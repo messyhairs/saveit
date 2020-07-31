@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddstoryComponent } from './components/addstory/addstory.component';
 import { GetstoryComponent } from './components/getstory/getstory.component';
 import { UpudatestoryComponent } from './components/upudatestory/upudatestory.component';
+import { ReadfullstoryComponent } from './components/readfullstory/readfullstory.component';
+
 const routes: Routes = [
   {
     path: 'addstory', component: AddstoryComponent
@@ -12,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id', component: UpudatestoryComponent
+  },
+  {
+    path: 'fullstory/:id', component: ReadfullstoryComponent
   }
 ];
 

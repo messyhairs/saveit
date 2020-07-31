@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { AddstoryComponent } from './components/addstory/addstory.component';
 import { GetstoryComponent } from './components/getstory/getstory.component';
 import { UpudatestoryComponent } from './components/upudatestory/upudatestory.component';
+import { ReadfullstoryComponent } from './components/readfullstory/readfullstory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddstoryComponent,
     GetstoryComponent,
-    UpudatestoryComponent
+    UpudatestoryComponent,
+    ReadfullstoryComponent
   ],
   imports: [
     BrowserModule,
