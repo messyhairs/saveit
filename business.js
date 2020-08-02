@@ -9,6 +9,9 @@ let Business = new Schema({
     avatarurl: {
         type: String
     },
+    song: {
+        type: String
+    },
     explainstory: {
         type: String
     }

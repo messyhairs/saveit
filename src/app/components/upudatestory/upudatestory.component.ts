@@ -21,7 +21,8 @@ export class UpudatestoryComponent implements OnInit {
     this.angForm = this.fb.group({
       storytitle: ['', Validators.required],
       avatarurl: ['', Validators.required],
-      explainstory: ['', Validators.required]
+      song: [''],
+      explainstory: ['']
     });
   }
 
@@ -33,9 +34,9 @@ export class UpudatestoryComponent implements OnInit {
       });
     });
   }
-  updateBusiness(storytitle, avatarurl, explainstory) {
+  updateBusiness(storytitle, avatarurl, song, explainstory) {
     this.route.params.subscribe(params => {
-      this.bs.updateBusiness(storytitle, avatarurl, explainstory, params['id']);
+      this.bs.updateBusiness(storytitle, avatarurl, song, explainstory, params['id']);
       this.router.navigate(['addstory']);
     });
   }

@@ -12,27 +12,31 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4">Avatar Url </label>
+            <label class="col-md-4">Reference Url </label>
             <input type="text" class="form-control w-50" formControlName="avatarurl" #avatarurl />
         </div>
         <div *ngIf="angForm.controls['avatarurl'].invalid && (angForm.controls['avatarurl'].dirty || angForm.controls['avatarurl'].touched)"
             class="alert alert-danger w-50">
             <div *ngIf="angForm.controls['avatarurl'].errors.required">
-                URL is required.
+                Reference URL is required.
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-4">Explain story </label>
             <textarea class="form-control w-50" formControlName="explainstory" #explainstory></textarea>
         </div>
-        <div *ngIf="angForm.controls['explainstory'].invalid && (angForm.controls['explainstory'].dirty || angForm.controls['explainstory'].touched)"
+        <div class="form-group">
+            <label class="col-md-4">Song </label>
+            <textarea class="form-control w-50" formControlName="song" #song></textarea>
+        </div>
+        <!-- <div *ngIf="angForm.controls['explainstory'].invalid && (angForm.controls['explainstory'].dirty || angForm.controls['explainstory'].touched)"
             class="alert alert-danger w-50">
             <div *ngIf="angForm.controls['explainstory'].errors.required">
                 Story brief is required.
             </div>
-        </div>
+        </div> -->
         <div class="form-group">
-            <button (click)="addBusiness(storytitle.value, avatarurl.value, explainstory.value)"
+            <button (click)="addBusiness(storytitle.value, avatarurl.value, song.value, explainstory.value)"
                 [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">
                 Add story
             </button>

@@ -10,7 +10,7 @@ businessRoutes.route('/add').post(function (req, res) {
     let business = new Business(req.body);
     business.save()
         .then(business => {
-            res.status(200).json({ 'business': 'business in added successfully' });
+            res.status(200).json({ 'story': 'story in added successfully' });
         })
         .catch(err => {
             res.status(400).send("unable to save to database");
@@ -45,6 +45,7 @@ businessRoutes.route('/update/:id').post(function (req, res) {
         else {
             business.storytitle = req.body.storytitle;
             business.avatarurl = req.body.avatarurl;
+            business.song = req.body.song;
             business.explainstory = req.body.explainstory;
 
             business.save().then(business => {

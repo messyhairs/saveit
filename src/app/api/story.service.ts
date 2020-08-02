@@ -6,15 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StoryService {
 
-  // uri = 'http://localhost:4000/business';
-  uri = 'https://meanapplauncher.herokuapp.com/business';
+  uri = 'http://localhost:4000/business';
+  // uri = 'https://meanapplauncher.herokuapp.com/business';
 
   constructor(private http: HttpClient) { }
 
-  addBusiness(storytitle, avatarurl, explainstory) {
+  addBusiness(storytitle, avatarurl, song, explainstory) {
     const obj = {
       storytitle: storytitle,
       avatarurl: avatarurl,
+      song: song,
       explainstory: explainstory
     };
     // console.log(obj);
@@ -32,11 +33,12 @@ export class StoryService {
       .http
       .get(`${this.uri}/edit/${id}`);
   }
-  updateBusiness(storytitle, avatarurl, explainstory, id) {
+  updateBusiness(storytitle, avatarurl, song, explainstory, id) {
 
     const obj = {
       storytitle: storytitle,
       avatarurl: avatarurl,
+      song: song,
       explainstory: explainstory
     };
     this

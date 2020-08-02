@@ -17,11 +17,12 @@ export class AddstoryComponent implements OnInit {
     this.angForm = this.fb.group({
       storytitle: ['', Validators.required],
       avatarurl: ['', Validators.required],
-      explainstory: ['', Validators.required]
+      song: ['', Validators.required],
+      explainstory: ['']
     });
   }
-  addBusiness(storytitle, avatarurl, explainstory) {
-    this.storyser.addBusiness(storytitle, avatarurl, explainstory);
+  addBusiness(storytitle, avatarurl, song, explainstory) {
+    this.storyser.addBusiness(storytitle, avatarurl, song, explainstory);
   }
 
   ngOnInit(): void {

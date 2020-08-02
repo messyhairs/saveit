@@ -1,14 +1,21 @@
 <!-- <div *ngFor="let business of businesses"> -->
 <div class="cardlayout" id="cardlayout">
-    <div class="wrapper" id="wrapper">
+    <!-- <div class="wrapper" id="wrapper">
         <img [defaultImage]="defaultImage" [lazyLoad]="business.avatarurl" class="image--cover">
-    </div>
+    </div> -->
     <div class="cardname">
         {{ business.storytitle }}
     </div>
     <div class="carddetails">
+        <!-- <hr class="w-60"> -->
+        <!-- <div class="morebout">
+            <p>
+                {{ business.song}}
+            </p>
+        </div> -->
         <hr class="w-60">
         <div class="morebout">
+            <h4 class="text-center py-3 font-weight-bold">Story</h4>
             {{ business.explainstory}}
         </div>
     </div>
